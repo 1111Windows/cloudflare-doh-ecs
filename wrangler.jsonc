@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-doh-ecs",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-27",
+  "workers_dev": true,
+  "kv_namespaces": [
+    {
+      "binding": "RULES_KV","id": "35baf58c7a324317a36891b456e941db"
+    }
+  ],
+  "vars": {
+    "DOH_PATH": "/doh",
+    "DOMESTIC_DOH_URL": "https://zu6t5mxzc0.cloudflare-gateway.com/dns-query",
+    "DOMESTIC_FALLBACK_DOH_URL": "https://doh.pub/dns-query",
+    "GLOBAL_DOH_URL": "https://zu6t5mxzc0.cloudflare-gateway.com/dns-query",
+    "GLOBAL_FALLBACK_DOH_URL": "https://cloudflare-dns.com/dns-query"
+  },
+  "triggers": {
+    "crons": ["17 3 * * *"]
+  }
+}
